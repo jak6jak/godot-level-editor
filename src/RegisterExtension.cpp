@@ -7,7 +7,10 @@
 #include "godot_cpp/godot.hpp"
 
 #include "Example.h"
+#include "GizmoTest.h"
 #include "GDExtensionTemplate.h"
+#include "GizmoTestPlugin.h"
+
 
 /// @file
 /// Register our classes with Godot.
@@ -21,18 +24,30 @@ namespace
     /// @see GDExtensionInit
     void initializeExtension( godot::ModuleInitializationLevel p_level )
     {
-        if ( p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE )
-        {
-            return;
-        }
 
-        godot::ClassDB::register_class<ExampleRef>();
-        godot::ClassDB::register_class<ExampleMin>();
-        godot::ClassDB::register_class<Example>();
-        godot::ClassDB::register_class<ExampleVirtual>( true );
-        godot::ClassDB::register_abstract_class<ExampleAbstract>();
+        if ( p_level == godot::MODULE_INITIALIZATION_LEVEL_SCENE )
+        {
+   
+        
+
+        //godot::ClassDB::register_class<ExampleRef>();
+        //godot::ClassDB::register_class<ExampleMin>();
+        //godot::ClassDB::register_class<Example>();
+        //godot::ClassDB::register_class<ExampleVirtual>( true );
+        
+       // godot::ClassDB::register_abstract_class<ExampleAbstract>();
 
         godot::ClassDB::register_class<GDExtensionTemplate>();
+        }
+        if(p_level == godot::MODULE_INITIALIZATION_LEVEL_EDITOR){
+
+            godot::ClassDB::register_class<GizmoTest>();
+            godot::ClassDB::register_class<godot::GizmoTestPlugin>();
+
+            godot::EditorPlugins::add_by_type<godot::GizmoTestPlugin>();
+        }
+
+        
     }
 
     /// @brief Called by Godot to let us do any cleanup.
@@ -42,6 +57,7 @@ namespace
     {
         if ( p_level != godot::MODULE_INITIALIZATION_LEVEL_SCENE )
         {
+            godot::EditorPlugins::remove_by_type<godot::GizmoTestPlugin>();
             return;
         }
     }

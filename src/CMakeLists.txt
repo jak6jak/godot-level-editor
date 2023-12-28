@@ -7,6 +7,11 @@ target_sources( ${PROJECT_NAME}
         GDExtensionTemplate.h
         GDExtensionTemplate.cpp
         RegisterExtension.cpp
+        GizmoTest.h
+        GizmoTest.cpp
+        GizmoTestPlugin.h
+        GizmoTestPlugin.cpp
+
 )
 
 target_include_directories( ${PROJECT_NAME}
