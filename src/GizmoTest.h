@@ -15,12 +15,12 @@ class GizmoTest : public godot::EditorNode3DGizmoPlugin
     GDCLASS( GizmoTest, EditorNode3DGizmoPlugin )
     public: 
     GizmoTest();
-    ~GizmoTest() override;
+    ~GizmoTest();
 
    
-    godot::String _get_gizmo_name() const;
-    bool _has_gizmo(godot::Node3D * for_node_3d) const;
-    void _redraw(const godot::Ref<godot::EditorNode3DGizmo> &gizmo);
+    godot::String _get_gizmo_name() const override;
+    bool _has_gizmo(godot::Node3D * for_node_3d) const override;
+    void _redraw(const godot::Ref<godot::EditorNode3DGizmo> &gizmo) override;
 public:
 /*
     void _redraw();

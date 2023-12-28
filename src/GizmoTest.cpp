@@ -47,10 +47,6 @@ void GizmoTest::_redraw( const godot::Ref<godot::EditorNode3DGizmo> &gizmo )
 }
 
 /*
-void GizmoTest::_redraw()
-{
-}
-
 bool GizmoTest::_is_handle_highlighted( int32_t id, bool secondary ) const{
     return false;
 }
